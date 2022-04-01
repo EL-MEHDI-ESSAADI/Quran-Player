@@ -1,5 +1,5 @@
 import { segments } from "./surahsSec.js";
-import { settings } from "./header-preloader-settings.js";
+import { header, settings } from "./header-preloader-settings.js";
 import * as thirdParty from "./thirdParty.js";
 
 export const audioPlayerElement = document.querySelector(".audioPlayer");
@@ -8,6 +8,11 @@ export const durationEl = document.body.querySelector(".audioPlayer__duration");
 export const currentTimeEl = document.body.querySelector(".audioPlayer__current-time");
 export const seekSliderEl = document.body.querySelector(".audioPlayer__seek");
 export const audio = new Audio();
+export let audioStates = {
+   isAudioLoading: false,
+   isAudioAppears: false,
+};
+
 const playPrevVerseBtn = document.querySelector(".audioPlayer__prev-verse-btn");
 const playNextVerseBtn = document.querySelector(".audioPlayer__next-verse-btn ");
 const repeatSurahBtn = document.querySelector(".audioPlayer__repeat-btn ");
@@ -32,7 +37,7 @@ export function setupPlayerEventListeners() {
          `.surah-section[data-id="${audioPlayerElement.dataset.surahId}"] .verse--active .verse__audio-btn`
       );
       // if audio is loading
-      if (playAudioBtn.classList.contains("audioPlayer__play-btn--loading")) return;
+      if (audioStates.isAudioLoading) return;
 
       if (isPlaying) {
          pauseAudio(pauseMode, surahHeaderAudioBtn, activeVerseAudioBtn);
@@ -42,13 +47,13 @@ export function setupPlayerEventListeners() {
    });
 
    seekSliderEl.addEventListener("change", (_) => {
-      if (playAudioBtn.classList.contains("audioPlayer__play-btn--loading")) return;
+      if (audioStates.isAudioLoading) return;
       audio.currentTime = seekSliderEl.value;
       isThumbMovingByUser = false;
    });
 
    seekSliderEl.addEventListener("input", (e) => {
-      if (playAudioBtn.classList.contains("audioPlayer__play-btn--loading")) {
+      if (audioStates.isAudioLoading) {
          seekSliderEl.value = 0;
          return;
       }
@@ -64,8 +69,8 @@ export function setupPlayerEventListeners() {
       const activeVerseAudioBtn = document.querySelector(
          `.surah-section[data-id="${audioPlayerElement.dataset.surahId}"] .verse--active .verse__audio-btn`
       );
-
-      if (repeatSurahBtn.classList.contains("audioPlayer__repeat-btn--repeating")) {
+      const isSurahRepeating = repeatSurahBtn.classList.contains("audioPlayer__repeat-btn--repeating");
+      if (isSurahRepeating) {
          playAudio(pauseMode, surahHeaderAudioBtn, activeVerseAudioBtn);
       } else {
          pauseAudio(pauseMode, surahHeaderAudioBtn, activeVerseAudioBtn);
@@ -174,17 +179,22 @@ export function setupPlayerEventListeners() {
       const activeVerseAudioBtn = document.querySelector(
          `.surah-section[data-id="${audioPlayerElement.dataset.surahId}"] .verse--active .verse__audio-btn`
       );
+
+      if (audioStates.isAudioLoading) {
+         alert("Soryy you can't close the player while the audio is loading");
+         return;
+      }
+
       pauseAudio(pauseMode, surahHeaderAudioBtn, activeVerseAudioBtn);
       moreMenuEl.classList.remove("audioPlayer__more-menu--show");
       audioPlayerElement.style.display = "none";
+      audioStates.isAudioAppears = false;
    });
 
    window.addEventListener("keydown", (e) => {
-      if (
-         audioPlayerElement.style.display != "block" ||
-         playAudioBtn.classList.contains("audioPlayer__play-btn--loading")
-      )
-         return;
+      const isHeaderInputFocused = document.activeElement === header.headerInput ? true : false;
+
+      if (!audioStates.isAudioAppears || audioStates.isAudioLoading || isHeaderInputFocused) return;
 
       if (e.key == "ArrowRight") playNextVerseBtn.click();
       if (e.key == "ArrowLeft") playPrevVerseBtn.click();
@@ -211,7 +221,8 @@ function pauseAudio(pauseMode, surahHeaderAudioBtn, activeVerseAudioBtn) {
 
 function changeVerse(targetBtn, value) {
    return (_) => {
-      if (targetBtn.classList.contains("audioPlayer__control-btn--disabled")) return;
+      const isTargetBtnDisabled = targetBtn.classList.contains("audioPlayer__control-btn--disabled");
+      if (isTargetBtnDisabled) return;
       segments.playerVerses.data.some((verse, index) => {
          if (!(audio.currentTime >= verse.timestamp_from && audio.currentTime < verse.timestamp_to)) return;
          if (segments.playerVerses.data[index + value])
@@ -321,6 +332,7 @@ function initialPlayerContent() {
    playAudioBtn.classList.remove("audioPlayer__play-btn--loading");
    playAudioBtn.classList.add("audioPlayer__play-btn--pause");
    audio.play();
+   audioStates.isAudioLoading = false;
 }
 
 function replaceStr(str, arr) {

@@ -384,5 +384,6 @@ export const header = {
    openSidebarBtn,
    setupHeaderEventListeners,
    headerLogoEl,
+   headerInput,
 };
 export { settings };

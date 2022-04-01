@@ -1,0 +1,19 @@
+{
+  "name": "quran-for-you",
+  "version": "1.0.0",
+  "description": "An app to read and listen to quran",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EL-MEHDI-ESSAADI/Quran-Player.git"
+  },
+  "author": "El Mehdi Essaadi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EL-MEHDI-ESSAADI/Quran-Player/issues"
+  },
+  "homepage": "https://github.com/EL-MEHDI-ESSAADI/Quran-Player#readme"
+}

@@ -303,12 +303,12 @@ export function build(map, track) {
    surahHeaderAudioBtn = surahSecEl.querySelector(".header__audio-btn");
    surahHeaderAudioBtn.addEventListener("click", (_) => {
       const pauseMode = "header__audio-btn--pause";
-      const isPlaying = surahHeaderAudioBtn.classList.contains(pauseMode);
+      const isSurahPlaying = surahHeaderAudioBtn.classList.contains(pauseMode);
       const activeVerseAudioBtn = surahSecEl.querySelector(`.verse--active .verse__audio-btn`);
       // if the audio is loading
-      if (audioPlayer.playAudioBtn.classList.contains("audioPlayer__play-btn--loading")) return;
+      if (audioPlayer.audioStates.isAudioLoading) return;
 
-      if (isPlaying) {
+      if (isSurahPlaying) {
          surahHeaderAudioBtn.classList.remove(pauseMode);
          if (activeVerseAudioBtn) activeVerseAudioBtn.classList.remove("verse__audio-btn--pause");
          audioPlayer.playAudioBtn.classList.remove("audioPlayer__play-btn--pause");
@@ -393,13 +393,13 @@ function addVerses(versesData, audioData) {
       const playVerseBtn = verseEl.querySelector(".verse__audio-btn");
       playVerseBtn.addEventListener("click", (_) => {
          const pauseMode = "verse__audio-btn--pause";
-         const isPlaying = playVerseBtn.classList.contains("verse__audio-btn--pause");
+         const isVersePlaying = playVerseBtn.classList.contains(pauseMode);
          const surahHeaderAudioBtn = document.querySelector(".header__audio-btn");
 
          // if the audio is loading
-         if (audioPlayer.playAudioBtn.classList.contains("audioPlayer__play-btn--loading")) return;
+         if (audioPlayer.audioStates.isAudioLoading) return;
 
-         if (isPlaying) {
+         if (isVersePlaying) {
             playVerseBtn.classList.remove(pauseMode);
             surahHeaderAudioBtn.classList.remove("header__audio-btn--pause");
             audioPlayer.playAudioBtn.classList.remove("audioPlayer__play-btn--pause");
@@ -431,7 +431,8 @@ function addVerses(versesData, audioData) {
       // bookmark btn
       const bookmarkBtn = verseEl.querySelector(".verse__bookmark-btn");
       bookmarkBtn.addEventListener("click", (_) => {
-         if (verseEl.classList.contains("verse--bookmarked")) {
+         const isVerseElBookmarked = verseEl.classList.contains("verse--bookmarked");
+         if (isVerseElBookmarked) {
             // if the verse is bookmarked
             const bookmarksStorage = JSON.parse(localStorage.bookmarks);
             localStorage.bookmarks = JSON.stringify(
@@ -455,7 +456,8 @@ function addVerses(versesData, audioData) {
 
 function playAudio(surah_id, audioData, startTime) {
    audioPlayer.audioPlayerElement.style.display = "block";
-
+   audioPlayer.audioStates.isAudioAppears = true;
+   
    // if the audio playing other surah or nothing, we should play it for the current surah with the reciter that came with audioData
    if (surah_id != audioPlayer.audioPlayerElement.dataset.surahId) {
       segments.playerVerses.data = [];
@@ -479,6 +481,7 @@ function playAudio(surah_id, audioData, startTime) {
       audioPlayer.playAudioBtn.classList.add("audioPlayer__play-btn--loading");
       audioPlayer.audio.pause();
       audioPlayer.audio.src = audioData.audio_url;
+      audioPlayer.audioStates.isAudioLoading = true;
    } else {
       audioPlayer.playAudioBtn.classList.add("audioPlayer__play-btn--pause");
       audioPlayer.audio.play();
