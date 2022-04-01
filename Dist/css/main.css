@@ -20,10 +20,6 @@
   --clr-sectionsBorder: #e0e0e0;
   --clr-scrollBar: 0 0% 35%;
   /* font sizes */
-  --fs-900: ;
-  --fs-800: ;
-  --fs-700: ;
-  --fs-600: ;
   --fs-500: 1.1rem;
   --fs-400: 1rem;
   --fs-300: 0.875rem;
@@ -70,6 +66,16 @@ button {
 
 svg {
   display: block;
+}
+
+:not(img)::-moz-selection {
+  background: var(--clr-accentBg-2);
+  color: var(--clr-accentText-1);
+}
+
+:not(img)::selection {
+  background: var(--clr-accentBg-2);
+  color: var(--clr-accentText-1);
 }
 
 img::-moz-selection {
@@ -262,22 +268,6 @@ a {
 
 .uppercase {
   text-transform: uppercase;
-}
-
-.fs-900 {
-  font-size: var(--fs-900);
-}
-
-.fs-800 {
-  font-size: var(--fs-800);
-}
-
-.fs-700 {
-  font-size: var(--fs-700);
-}
-
-.fs-600 {
-  font-size: var(--fs-600);
 }
 
 .fs-500 {

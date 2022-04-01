@@ -22,10 +22,6 @@
    --clr-scrollBar: 0 0% 35%;
 
    /* font sizes */
-   --fs-900: ;
-   --fs-800: ;
-   --fs-700: ;
-   --fs-600: ;
    --fs-500: 1.1rem;
    --fs-400: 1rem;
    --fs-300: 0.875rem;
@@ -74,10 +70,10 @@ svg {
    display: block;
 }
 
-// :not(img)::selection {
-//    background-color: ;
-//    color: ;
-// }
+:not(img)::selection {
+   background: var(--clr-accentBg-2);
+   color: var(--clr-accentText-1);
+}
 img::selection {
    background-color: transparent;
 }
@@ -148,23 +144,6 @@ a {
    display: block;
 }
 
-// This is a bootstrap container if u want to use it
-$media-width: (
-      "media-Min-Width": 36em,
-      "containerWidth": 33.75rem,
-   ),
-   (
-      "media-Min-Width": 48em,
-      "containerWidth": 45rem,
-   ),
-   (
-      "media-Min-Width": 62em,
-      "containerWidth": 60rem,
-   ),
-   (
-      "media-Min-Width": 75em,
-      "containerWidth": 71.25rem,
-   );
 
 // containers
 
@@ -260,18 +239,7 @@ $media-width: (
    text-transform: uppercase;
 }
 
-.fs-900 {
-   font-size: var(--fs-900);
-}
-.fs-800 {
-   font-size: var(--fs-800);
-}
-.fs-700 {
-   font-size: var(--fs-700);
-}
-.fs-600 {
-   font-size: var(--fs-600);
-}
+
 .fs-500 {
    font-size: var(--fs-500);
 }
