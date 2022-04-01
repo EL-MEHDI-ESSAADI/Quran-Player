@@ -1,0 +1,93 @@
+.page-sidebar {
+   position: fixed;
+   top: 0;
+   left: 0;
+   z-index: 1000;
+   display: grid;
+   grid-template-rows: min-content min-content 1fr;
+   width: 18.6rem;
+   height: 100%;
+   transform: translateX(-100%);
+   transition: .3s ease;
+   overflow: hidden auto;
+   &.page-sidebar--open {
+      transform: translateX(0%);
+   }
+
+   #{&}__header {
+      height: 3.8975rem;
+      padding: .7rem 1.5rem;
+      border-bottom: 1px solid var(--clr-sectionsBorder);
+      .page-sidebar__close-sidebar-btn {
+         width: 1.44rem;
+      }
+      .page-sidebar__logo {
+         width: 7.5rem;
+      }
+   }
+   #{&}__nav {
+
+      .page-sidebar__item {
+         .page-sidebar__link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0.31rem 0.5rem;
+            padding: 0.625rem;
+            border-radius: 0.25rem;
+            transition: var(--trn-fast-smooth);
+            box-shadow: var(--clr-box-shadow) 1.95px 1.95px 2.6px;
+            &:where([aria-selected="true"], :hover, :focus) {
+               background-color: var(--clr-secondaryBg);
+            }
+
+            &__icon {
+               width: 1.3rem;
+               fill: var(--clr-accentBg-1); 
+            }
+            &__body {
+               text-transform: capitalize;
+            }
+         }
+      }
+
+      hr {
+         margin: 0.31rem 0.5rem;
+         border: 1px solid var(--clr-sectionsBorder);
+      }
+   }
+   .page-sidebar__kid-img-container {
+      display: grid;
+      align-content: end;
+      padding-bottom: 1rem;
+
+      .page-sidebar__kid-img {
+         justify-self: right;
+         width: 20vh;
+         transform: translateX(100%);
+         filter: drop-shadow(-1px 8px 5px black);
+         &.page-sidebar__kid-img--show {
+            transform: translateX(0);
+            transition: .5s .3s ease-out;
+         }
+      }
+   }
+
+   @media (max-width:24em) {
+      width: 100%;
+   }
+}
+
+.page-sidebar-overlay {
+   position: fixed;
+   inset: 0;
+   z-index: 999;
+   display: none;
+   background-color: var(--clr-overlay);
+   @media (max-width: 24em) {
+      display: none !important;
+   }
+}
+
+
+

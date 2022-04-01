@@ -1,0 +1,65 @@
+main {
+   .surahs-overview-section {
+      width: #{"min(71.9rem, 100%)"}; 
+      margin: auto;
+      padding: 1.5rem 1rem  5rem;
+
+      &__kid-img {
+         position: relative;
+         width: 15.625rem;
+         margin-inline: auto;
+         margin-block: 1rem -.6rem;
+      }
+   
+      &__surahs-container {
+         display: grid;
+         gap: 1rem;         
+         .surah {
+            gap: 0rem;
+            justify-content: space-between;
+            padding: 1rem 1.5rem;
+            border-radius: 4px;
+            box-shadow: #{"var(--clr-box-shadow) 1.95px 1.95px 2.6px"};
+            transition: var(--trn-fast-smooth);
+            cursor: pointer;
+            --flow-space: .35rem;
+            &:is(:hover, :focus) {
+               background-color: var(--clr-accentBg-3);
+               .surah__id-container {
+                  background-color: var(--clr-accentBg-2);
+                  color: var(--clr-accentText-1);
+               }
+            }
+      
+            .surah__id-container {
+               display: grid;
+               place-items: center;
+               width: 2.375rem;
+               height: 2.375rem;
+               margin-right: 0.64rem;
+               border-radius: 4px;
+               transform: rotate(45deg);
+               transition: var(--trn-fast-smooth);
+               .surah__id-body {
+                  transform: rotate(-45deg);
+               }
+            }
+      
+            .surah__ar-name {
+               text-align: center;
+            }
+            * {
+               word-break: break-word;
+            }
+         }
+         @media (min-width: 23.4375em) {
+            grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
+      
+            .surah {
+               gap: 0.2rem;
+               padding: 1rem 1.9rem;
+            }
+         }
+      }
+   }
+}

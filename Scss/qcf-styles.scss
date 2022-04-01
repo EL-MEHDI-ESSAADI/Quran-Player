@@ -1,0 +1,13 @@
+@mixin fontFace($page) {
+   @font-face {
+      font-family: p#{$page};
+      src: url("../Qcf_font/woff2/p#{$page}.woff2") format("woff2"),
+      url("../Qcf_font/woff/p#{$page}.woff") format("woff"),
+      url("../Qcf_font/ttf/p#{$page}.ttf") format("truetype");
+   }
+
+}
+
+@for $page from 1 to 605 {
+   @include fontFace($page) ;
+}

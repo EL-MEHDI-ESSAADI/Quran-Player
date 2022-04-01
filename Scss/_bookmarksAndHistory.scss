@@ -1,0 +1,110 @@
+main {
+   overflow: hidden;
+   .bookmarks-history-section {
+      width: min(71.9rem, 100%);
+      margin: auto;
+      padding: 1.5rem 1rem  5rem;
+      text-transform: capitalize;
+
+      .history {
+         .history__items {
+            display: flex;
+            column-gap: 1rem;
+            padding: 1rem 0.4rem;
+            overflow-x: auto;
+            .history__item {
+               display: grid;
+               min-height: 15.125rem;
+               flex-shrink: 0;
+               width: 12rem;
+               padding: 1rem;
+               border-radius: 3px;
+               box-shadow: var(--clr-box-shadow) 1px 2px 3.6px 1px;
+               transition: var(--trn-fast-smooth);
+               font-weight: 900;
+               cursor: pointer;
+               &:is(:hover, :focus) {
+                  background-color: var(--clr-accentBg-3);
+               }
+               .history__top-container {
+                  justify-content: space-between;
+                  font-size: 1.1rem;
+               }
+               .history__item__eg-name {
+                  margin-top: 0.6rem;
+                  font-size: 1.2rem;
+               }
+               .history__item__ar-name {
+                  align-self: flex-end;
+                  display: grid;
+                  place-items: center;
+                  height: 6.25rem;
+                  font-size: 1.4rem;
+                  background-color: var(--clr-secondaryBg);
+               }
+            }
+         }
+      }
+
+      .bookmarks {
+         .bookmarks__items {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            padding: 1rem 0.4rem;
+            overflow: auto;
+            .bookmarks__item {
+               flex-shrink: 0;
+               display: flex;
+               gap: 0.5rem;
+               border: 1px solid var(--clr-accentBg-2);
+               border-radius: 18px;
+               padding: 0.55rem 0.9rem;
+               color: var(--clr-accentText-1);
+               background-color: var(--clr-accentBg-2);
+               transition: var(--trn-fast-smooth);
+               font-weight: 600;
+               cursor: pointer;
+               &:is(:hover, :focus) {
+                  color: var(--clr-accentBg-2);
+                  background-color: var(--clr-accentText-1);
+               }
+            }
+         }
+      }
+      .history,
+      .bookmarks {
+         padding-block: 0.5rem;
+      }
+      .history__header,
+      .bookmarks__header {
+         border-bottom: 1px solid var(--clr-accentBg-5);
+      }
+      .history__section-name,
+      .bookmarks__section-name {
+         width: min-content;
+         padding: 0.375rem;
+         border-bottom: 2px solid var(--clr-primaryText);
+         cursor: pointer;
+      }
+
+      .history__items::-webkit-scrollbar,
+      .bookmarks__items::-webkit-scrollbar {
+         height: 1rem;
+      }
+      .history__items::-webkit-scrollbar-track,
+      .bookmarks__items::-webkit-scrollbar-track {
+         background-color: transparent;
+      }
+      .history__items::-webkit-scrollbar-thumb,
+      .bookmarks__items::-webkit-scrollbar-thumb {
+         border-radius: 0.5rem;
+         border: 0.25rem solid transparent;
+         background-clip: content-box;
+         background-color: hsl(var(--clr-scrollBar));
+         &:hover {
+            background-color: hsl(var(--clr-scrollBar) / 0.7);
+         }
+      }
+   }
+}
