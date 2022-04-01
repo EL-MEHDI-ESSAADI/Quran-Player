@@ -1,5 +1,5 @@
 import { segments } from "./surahsSec.js";
-import { settings } from "./header-preloader-settings.js";
+import { settings, audioPlayerElementAppears } from "./header-preloader-settings.js";
 import * as thirdParty from "./thirdParty.js";
 
 export const audioPlayerElement = document.querySelector(".audioPlayer");
@@ -181,7 +181,7 @@ export function setupPlayerEventListeners() {
 
    window.addEventListener("keydown", (e) => {
       if (
-         audioPlayerElement.style.display != "block" ||
+         audioPlayerElementAppears ||
          playAudioBtn.classList.contains("audioPlayer__play-btn--loading")
       )
          return;

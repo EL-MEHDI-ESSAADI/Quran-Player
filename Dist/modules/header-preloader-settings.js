@@ -4,6 +4,7 @@ import * as sidebar from "./sidebar.js";
 import { surahsInfo } from "./storage.js";
 import * as thirdParty from "./thirdParty.js";
 
+export let audioPlayerElementAppears = false;
 const headerEl = document.querySelector(".page-header");
 const headerInput = document.querySelector(".page-header__input");
 const headerSubmitBtn = document.querySelector(".page-header__submit-btn");
@@ -137,7 +138,9 @@ function setupHeaderEventListeners() {
    });
 
    headerSubmitBtn.addEventListener("click", displaySearchResults);
-
+   headerInput.addEventListener('focus', () => audioPlayerElementAppears = true);
+   headerInput.addEventListener('blur', () => audioPlayerElementAppears = false);
+  
    displaySearchBtn.addEventListener("click", (_) => {
       headerEl.classList.add("page-header--mobile-search-mode");
       headerInput.focus();
