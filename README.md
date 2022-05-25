@@ -100,8 +100,6 @@ I got familiar with npm by using ESLint library with ESLint extension to catch e
 
 Your Name - [@Von_Mehdi](https://twitter.com/Von__Mehdi) - gsio1487@gmail.com
 
-Project Link: [https://github.com/EL-MEHDI-ESSAADI/Quran-Player](https://github.com/EL-MEHDI-ESSAADI/Quran-Player)
-
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
