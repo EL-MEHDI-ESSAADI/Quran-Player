@@ -58,8 +58,6 @@ but React fixed that, the code is readable the project wasn't hard to build (Rea
 
 [@Von_Mehdi](https://twitter.com/Von__Mehdi) - gsio1487@gmail.com
 
-Project Link: [https://github.com/EL-MEHDI-ESSAADI/Quran-Player](https://github.com/EL-MEHDI-ESSAADI/Quran-Player)
-
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- ACKNOWLEDGMENTS -->
