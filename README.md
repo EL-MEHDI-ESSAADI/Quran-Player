@@ -98,7 +98,7 @@ I got familiar with npm by using ESLint library with ESLint extension to catch e
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@Von_Mehdi](https://twitter.com/Von__Mehdi) - gsio1487@gmail.com
+[@Von_Mehdi](https://twitter.com/Von__Mehdi) - gsio1487@gmail.com
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
