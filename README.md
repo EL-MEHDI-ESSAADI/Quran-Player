@@ -56,12 +56,12 @@
 ## About The Project
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
+   
+   
+   
+   Quran For You is An application that has several translations to read the Qur'an, and several reciters to hear it.
+   is a light clone for the [quran.com](https://quran.com/) website, with my ideas and touch. 
 
-   I was practicing on js and I did lots of projects until I decided to work on a big one, the first idea that came to my mind is to build a 
-   quran player, I did my research and I found bunch of nice apis but I didn't find any website design to work with.
-   here I took the decision to do a light clone to the [quran.com](https://quran.com/) website so I can put all my focus on coding and 
-   implementing this awesome website's ideas with my touch  and don't have to worry about the design, 
-   and here it is the result of the hard work, I'm proud of the app, I tried my best, I learned lots things. 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -98,7 +98,7 @@ I got familiar with npm by using ESLint library with ESLint extension to catch e
 <!-- CONTACT -->
 ## Contact
 
-[@Von_Mehdi](https://twitter.com/Von__Mehdi) - gsio1487@gmail.com
+[@El Mehdi Essaadi](https://www.linkedin.com/in/el-mehdi-essaadi-a80815247) - mehdiessaadion@gmail.com
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
