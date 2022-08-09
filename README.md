@@ -38,9 +38,8 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-I learned React Js, so I decided to rebuild the [Vanila Js](https://github.com/EL-MEHDI-ESSAADI/Quran-Player/tree/Vanila-Js) version with React, and I'm quite happy for the result.
-The [Vanila Js](https://github.com/EL-MEHDI-ESSAADI/Quran-Player/tree/Vanila-Js) version was really hard to build becuase the project is big, and I wasn't happy for it, because the code was not readable,
-but React fixed that, the code is readable the project wasn't hard to build (React did his job 👌, and it was worth to learn 😁).
+   Quran For You is An application that has several translations to read the Qur'an, and several reciters to hear it. <br/>
+   The App is a light clone for the [quran.com](https://quran.com/) website, with my ideas and touch, and it has two versions, this main version that buit with React Js and a [Vanila Js](https://github.com/EL-MEHDI-ESSAADI/Quran-Player/tree/Vanila-Js) version
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -56,7 +55,7 @@ but React fixed that, the code is readable the project wasn't hard to build (Rea
 
 ## Contact
 
-[@Von_Mehdi](https://twitter.com/Von__Mehdi) - gsio1487@gmail.com
+[@El Mehdi Essaadi](https://www.linkedin.com/in/el-mehdi-essaadi-a80815247) - mehdiessaadion@gmail.com
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
