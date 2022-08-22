@@ -38,7 +38,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-   Quran For You is An application that has several translations to read the Qur'an, and several reciters to hear it. <br/>
+   Quran For You is An application that has several translations to read the Qur'an, and several reciters to listen to it. <br/>
    The App is a light clone for the [quran.com](https://quran.com/) website, with my ideas and touch, and it has two versions, this main version that buit with React Js and a [Vanila Js](https://github.com/EL-MEHDI-ESSAADI/Quran-Player/tree/Vanila-Js) version
 
 <p align="right">(<a href="#top">back to top</a>)</p>
