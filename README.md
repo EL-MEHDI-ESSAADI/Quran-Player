@@ -12,7 +12,7 @@
   <p align="center">
     An app to read and listen to Quran
     <br />
-    <a href="https://quran-for-you-react.netlify.app"><strong>View Demo »</strong></a>
+    <a href="https://quran.mehdiessaadi.live"><strong>View Demo »</strong></a>
     <br />
   </p>
 </div>
